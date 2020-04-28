@@ -6,7 +6,6 @@ import os
 path = os.getcwd() + "/output"
 print(path)
 
-
 try: 
     os.mkdir(path) 
 except OSError as error: 
@@ -17,7 +16,7 @@ with open('input.csv', 'rU') as csvfile:
     all = list(csv.DictReader(csvfile))
     
 data = []
-rowcount = 1;
+rowcount = 1
 for key, group in itertools.groupby(
     all, 
     key=lambda r: (r['docName'], r['templateName'], r['type'], r['url'], r['recipientName'], r['issuedByName'], r['docstoreName'], r['docStore'], r['idProofType'], r['idProofLocation'])):
@@ -59,7 +58,7 @@ for key, group in itertools.groupby(
     text_file.close()
     
     rowcount+=1
-    data.pop();
+    data.pop()
 
 if os.path.exists("tmp.json"):
   os.remove("tmp.json")
